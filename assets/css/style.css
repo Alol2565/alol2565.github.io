@@ -115,6 +115,16 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .hero .affil { color: var(--muted); margin: 0 0 1.4rem; }
 .hero .affil a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .hero .affil a:hover { color: var(--accent); }
+.hero-head { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
+.avatar {
+  width: 116px; height: 116px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--border); box-shadow: var(--shadow); flex-shrink: 0;
+}
+.hero-text .affil { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .hero-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .avatar { width: 96px; height: 96px; }
+}
 
 .links { display: flex; flex-wrap: wrap; gap: .55rem; }
 .btn {
@@ -191,6 +201,21 @@ p:last-child { margin-bottom: 0; }
 .chip {
   padding: .25rem .6rem; border-radius: 8px; font-size: .86rem;
   background: var(--surface); border: 1px solid var(--border); color: var(--text);
+}
+
+/* Hikes gallery */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+@media (max-width: 560px) { .gallery { grid-template-columns: 1fr 1fr; } }
+.gallery .ph {
+  aspect-ratio: 4 / 3; border: 1px dashed var(--border); border-radius: var(--radius);
+  background: var(--surface); display: grid; place-content: center; gap: .3rem;
+  text-align: center; color: var(--faint);
+}
+.gallery .ph span { font-size: 1.7rem; }
+.gallery .ph small { font-size: .78rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--radius); border: 1px solid var(--border);
 }
 
 /* Footer */
