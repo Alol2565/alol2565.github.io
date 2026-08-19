@@ -1,2 +1,5 @@
 # macOS / editor cruft
 .DS_Store
+
+# Local theme-preview files (not for deploy)
+_variant-*.html

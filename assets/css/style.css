@@ -1,47 +1,21 @@
 /* ============================================================
-   Ali Saeizadeh — personal site
-   Plain HTML/CSS, no build step. Light/dark via CSS variables.
+   Ali Saei — personal site
+   Plain HTML/CSS, no build step. Warm light theme (light-only), serif headings.
    ============================================================ */
 
 :root {
-  --bg:        #ffffff;
-  --surface:   #f6f7f9;
-  --border:    #e6e8eb;
-  --text:      #1a1d21;
-  --muted:     #5c6570;
-  --faint:     #8a929c;
-  --accent:    #2563eb;
-  --accent-soft: #e8effd;
-  --shadow:    0 1px 2px rgba(16, 24, 40, .04), 0 1px 3px rgba(16, 24, 40, .06);
+  /* Warm ivory theme (light-only) */
+  --bg:        #faf6ee;
+  --surface:   #f3ecdf;
+  --border:    #e7ddca;
+  --text:      #2b2622;
+  --muted:     #6b6055;
+  --faint:     #9c8f7d;
+  --accent:    #c2410c;
+  --accent-soft: #f8e3d2;
+  --shadow:    0 1px 2px rgba(70, 50, 25, .05), 0 8px 24px rgba(70, 50, 25, .07);
   --radius:    12px;
   --maxw:      50rem;
-}
-
-:root[data-theme="dark"] {
-  --bg:        #0f1115;
-  --surface:   #171a20;
-  --border:    #262b33;
-  --text:      #e7e9ec;
-  --muted:     #a2abb6;
-  --faint:     #6c7580;
-  --accent:    #7aa2ff;
-  --accent-soft: #1b2540;
-  --shadow:    0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .25);
-}
-
-/* Follow the OS when the user hasn't picked a theme explicitly */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:        #0f1115;
-    --surface:   #171a20;
-    --border:    #262b33;
-    --text:      #e7e9ec;
-    --muted:     #a2abb6;
-    --faint:     #6c7580;
-    --accent:    #7aa2ff;
-    --accent-soft: #1b2540;
-    --shadow:    0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .25);
-  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -87,23 +61,6 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .nav a { color: var(--muted); font-size: .93rem; }
 .nav a:hover { color: var(--text); text-decoration: none; }
 @media (max-width: 640px) { .nav a { display: none; } }
-
-.toggle {
-  display: inline-grid; place-items: center;
-  width: 36px; height: 36px; border-radius: 9px;
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--text); cursor: pointer; font-size: 1rem; line-height: 1;
-}
-.toggle:hover { border-color: var(--accent); }
-.toggle svg { width: 17px; height: 17px; }
-.toggle .sun { display: none; }
-:root[data-theme="dark"] .toggle .sun,
-.toggle .moon { display: inline; }
-:root[data-theme="dark"] .toggle .moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .toggle .sun { display: inline; }
-  :root:not([data-theme="light"]) .toggle .moon { display: none; }
-}
 
 /* ---------- Hero ---------- */
 .hero { padding: 3.5rem 0 1.5rem; }
@@ -191,6 +148,38 @@ p:last-child { margin-bottom: 0; }
 .awards li + li { border-top: 1px dashed var(--border); }
 .awards .yr { color: var(--faint); font-size: .85rem; min-width: 3rem; font-variant-numeric: tabular-nums; }
 .awards .aw b { font-weight: 600; }
+
+/* News timeline */
+.timeline { position: relative; padding-left: 1.5rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 5px; top: .5rem; bottom: .5rem;
+  width: 2px; background: var(--border);
+}
+.tl-item { position: relative; padding-bottom: 1.1rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: ""; position: absolute; left: -1.5rem; top: .45rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+}
+.tl-date { color: var(--faint); font-size: .82rem; font-variant-numeric: tabular-nums; margin: 0; }
+.tl-body { margin: .1rem 0 0; }
+.tl-body b { font-weight: 620; }
+.tl-body a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Publication sub-group heading */
+.subhead {
+  font-size: .95rem; font-weight: 650; color: var(--text);
+  margin: 1.5rem 0 .5rem; letter-spacing: -.01em;
+}
+.subhead:first-of-type { margin-top: .2rem; }
+
+/* Warm serif theme accents */
+h1, .brand, .subhead { font-family: ui-serif, 'Iowan Old Style', 'Palatino', Georgia, serif; }
+h1 { letter-spacing: -.015em; font-weight: 650; }
+.subhead { font-style: italic; font-weight: 600; font-size: 1rem; }
+.hero { background: radial-gradient(760px 260px at 22% -50px, rgba(236, 166, 104, .18), transparent 72%); }
+.avatar { border-color: color-mix(in srgb, var(--accent) 24%, var(--border)); }
 
 /* Skills */
 .skills { display: grid; gap: .9rem; }
