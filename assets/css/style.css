@@ -144,9 +144,10 @@ p:last-child { margin-bottom: 0; }
 .tag {
   display: inline-block; margin-left: .4rem; padding: .05rem .55rem;
   font-size: .72rem; font-weight: 600; border-radius: 999px;
-  background: var(--accent-soft); color: var(--accent);
   vertical-align: middle;
 }
+.tag-wl  { background: #d7efe9; color: #0f766e; }  /* Wireless AI — teal */
+.tag-bio { background: #fbe1ec; color: #be185d; }  /* Biomedical AI — rose */
 
 /* Awards */
 .awards { list-style: none; margin: 0; padding: 0; }
