@@ -141,6 +141,12 @@ p:last-child { margin-bottom: 0; }
   background: var(--accent-soft); color: var(--accent);
   vertical-align: middle;
 }
+.tag {
+  display: inline-block; margin-left: .4rem; padding: .05rem .55rem;
+  font-size: .72rem; font-weight: 600; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+  vertical-align: middle;
+}
 
 /* Awards */
 .awards { list-style: none; margin: 0; padding: 0; }
